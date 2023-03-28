@@ -1,3 +1,5 @@
+package com.flora30
+
 import org.bukkit.plugin.java.JavaPlugin
 
 class DiveAPIN: JavaPlugin() {
