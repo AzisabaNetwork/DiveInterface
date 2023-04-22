@@ -1,5 +1,14 @@
 package com.flora30.data.player
 
-object PlayerDataObject {
+import java.util.*
+import kotlin.collections.HashMap
 
+object PlayerDataObject {
+    val playerDataMap: Map<UUID, PlayerData> = HashMap()
+
+    private var uniqueId = 0
+    fun getUniqueSideBarID(): Int{
+        uniqueId++
+        return uniqueId
+    }
 }
