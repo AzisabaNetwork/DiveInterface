@@ -1,4 +1,4 @@
-package com.flora30
+package com.flora30.event
 
 import io.lumine.xikage.mythicmobs.io.MythicConfig
 import org.bukkit.configuration.ConfigurationSection
