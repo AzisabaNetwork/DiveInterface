@@ -1,4 +1,4 @@
-package com.flora30.data.player
+package com.flora30.diveapin.data.player
 
 import java.util.*
 import kotlin.collections.HashMap

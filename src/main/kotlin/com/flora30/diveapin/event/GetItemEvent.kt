@@ -1,6 +1,6 @@
-package com.flora30.event
+package com.flora30.diveapin.event
 
-import com.flora30.DiveAPIN
+import com.flora30.diveapin.DiveAPIN
 import org.bukkit.NamespacedKey
 import org.bukkit.event.Event
 import org.bukkit.event.HandlerList

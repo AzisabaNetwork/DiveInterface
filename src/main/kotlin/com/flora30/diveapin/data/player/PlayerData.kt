@@ -1,4 +1,4 @@
-package com.flora30.data.player
+package com.flora30.diveapin.data.player
 
 import com.comphenix.protocol.events.PacketContainer
 import org.bukkit.Location
@@ -14,7 +14,7 @@ class PlayerData(
     var isFirstJoin: Boolean,
     var money: Int,
 
-) {
+    ) {
     // セーブしないもの
     val chatStackList: List<PacketContainer> = ArrayList()
     var afkLocation: Location? = null

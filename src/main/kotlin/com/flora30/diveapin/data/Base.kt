@@ -1,4 +1,4 @@
-package com.flora30.data
+package com.flora30.diveapin.data
 
 import java.util.*
 

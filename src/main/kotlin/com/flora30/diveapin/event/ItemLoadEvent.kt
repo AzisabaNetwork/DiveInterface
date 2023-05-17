@@ -1,4 +1,4 @@
-package com.flora30.event
+package com.flora30.diveapin.event
 
 import io.lumine.xikage.mythicmobs.io.MythicConfig
 import org.bukkit.configuration.ConfigurationSection
