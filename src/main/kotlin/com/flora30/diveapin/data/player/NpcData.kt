@@ -5,14 +5,13 @@ class NpcData (
     var storyMissionId: Int = -1,
     var mobMissionId: Int = -1,
     var itemMissionId: Int = -1,
+    // NPCID | 会話の進捗
+    val talkProgressMap: HashMap<Int,Int>,
 
     //セーブ無し
     var isTalking: Boolean = false,
     var setFirstTalk: Boolean = false
 ){
-    // NPCID | 会話の進捗
-    val talkProgressMap = hashMapOf<Int,Int>()
-
     fun setMissionId(type: String, id: Int){
         when(type){
             "Story" -> storyMissionId = id
