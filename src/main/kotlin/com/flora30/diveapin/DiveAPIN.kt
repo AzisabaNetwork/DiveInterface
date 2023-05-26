@@ -6,12 +6,19 @@ import org.bukkit.scheduler.BukkitScheduler
 
 class DiveAPIN: JavaPlugin() {
     companion object {
-        lateinit var plugin: JavaPlugin
+        lateinit var plugin: DiveAPIN
     }
 
     init {
         plugin = this
     }
+
+    // 準備が出来たプラグインのフラグ
+    var itemDataReady: Boolean = false
+    var itemStackReady: Boolean = false
+    var storyReady: Boolean = false
+    var coreEventReady: Boolean = false
+    var questEventReady: Boolean = false
 
     // Task用のscheduler
     val scheduler: BukkitScheduler = Bukkit.getServer().scheduler
@@ -34,6 +41,10 @@ class DiveAPIN: JavaPlugin() {
 
             lagTime = System.currentTimeMillis()
         },1L)
+    }
+
+    fun delayedTask(delay: Int, task: Runnable) {
+        scheduler.scheduleSyncDelayedTask(this, task, delay.toLong())
     }
 
 

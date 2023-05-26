@@ -11,7 +11,7 @@ import org.bukkit.persistence.PersistentDataType
 class GetItemEvent (
     val id: Int,
     val item: ItemStack,
-    val additionalValue: String?,
+    var additionalValue: String?,
     val isAsync: Boolean
 ):Event(isAsync) {
 
