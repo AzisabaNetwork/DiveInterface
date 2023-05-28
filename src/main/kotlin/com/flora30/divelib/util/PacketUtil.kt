@@ -2,10 +2,9 @@ package com.flora30.diveapin.util
 
 import com.comphenix.protocol.PacketType
 import com.comphenix.protocol.ProtocolLibrary
-import com.comphenix.protocol.events.PacketContainer
 import com.comphenix.protocol.wrappers.BlockPosition
 import com.comphenix.protocol.wrappers.WrappedBlockData
-import com.flora30.diveapin.DiveAPIN
+import com.flora30.diveapin.DiveLib
 import org.bukkit.Location
 import org.bukkit.Material
 import org.bukkit.entity.Player
@@ -37,7 +36,7 @@ object PacketUtil {
 
     fun fadeOutBorderPacket(player: Player, time: Int) {
         sendBorderPacket(player, 200000, 1f, 0f, time.toLong())
-        DiveAPIN.plugin.delayedTask(20) { sendBorderPacket(player, 0, 0f, 0f, 0) }
+        DiveLib.plugin.delayedTask(20) { sendBorderPacket(player, 0, 0f, 0f, 0) }
     }
 
     fun setBorderPacket(player: Player) {

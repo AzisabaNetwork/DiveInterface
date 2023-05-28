@@ -4,9 +4,9 @@ import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
 import org.bukkit.scheduler.BukkitScheduler
 
-class DiveAPIN: JavaPlugin() {
+class DiveLib: JavaPlugin() {
     companion object {
-        lateinit var plugin: DiveAPIN
+        lateinit var plugin: DiveLib
     }
 
     init {

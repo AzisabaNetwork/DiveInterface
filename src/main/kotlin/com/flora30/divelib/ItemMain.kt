@@ -1,6 +1,5 @@
 package com.flora30.diveapin
 
-import com.flora30.diveapin.DiveAPIN
 import com.flora30.diveapin.event.GetItemEvent
 import io.lumine.xikage.mythicmobs.MythicMobs
 import io.lumine.xikage.mythicmobs.items.ItemManager
@@ -66,7 +65,7 @@ object ItemMain {
     fun getItemId(item: ItemStack?):Int {
         if (item == null || item.itemMeta == null) return -1
         return Integer.parseInt(item.itemMeta.persistentDataContainer.getOrDefault(
-            NamespacedKey(DiveAPIN.plugin,"id"),
+            NamespacedKey(DiveLib.plugin,"id"),
             PersistentDataType.STRING,"-1"))
     }
 

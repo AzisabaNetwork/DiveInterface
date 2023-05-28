@@ -1,6 +1,6 @@
 package com.flora30.diveapin.event
 
-import com.flora30.diveapin.DiveAPIN
+import com.flora30.diveapin.DiveLib
 import org.bukkit.NamespacedKey
 import org.bukkit.event.Event
 import org.bukkit.event.HandlerList
@@ -26,21 +26,21 @@ class GetItemEvent (
     fun setString(key: String, value: String){
         if (item.itemMeta != null) {
             val meta: ItemMeta = item.itemMeta
-            meta.persistentDataContainer.set(NamespacedKey(DiveAPIN.plugin,key), PersistentDataType.STRING,value)
+            meta.persistentDataContainer.set(NamespacedKey(DiveLib.plugin,key), PersistentDataType.STRING,value)
             item.itemMeta = meta
         }
     }
     fun setString(key: String, value: Int){
         if (item.itemMeta != null) {
             val meta: ItemMeta = item.itemMeta
-            meta.persistentDataContainer.set(NamespacedKey(DiveAPIN.plugin,key), PersistentDataType.STRING,value.toString())
+            meta.persistentDataContainer.set(NamespacedKey(DiveLib.plugin,key), PersistentDataType.STRING,value.toString())
             item.itemMeta = meta
         }
     }
     fun setString(key: String, value: Double){
         if (item.itemMeta != null) {
             val meta: ItemMeta = item.itemMeta
-            meta.persistentDataContainer.set(NamespacedKey(DiveAPIN.plugin,key), PersistentDataType.STRING,value.toString())
+            meta.persistentDataContainer.set(NamespacedKey(DiveLib.plugin,key), PersistentDataType.STRING,value.toString())
             item.itemMeta = meta
         }
     }

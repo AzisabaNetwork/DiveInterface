@@ -1,11 +1,10 @@
 package com.flora30.diveapin.util
 
-import com.flora30.diveapin.DiveAPIN
+import com.flora30.diveapin.DiveLib
 import com.flora30.diveapin.ItemEntityObject
 import com.flora30.diveapin.ItemMain
 import org.bukkit.NamespacedKey
 import org.bukkit.entity.Player
-import org.bukkit.inventory.Inventory
 import org.bukkit.inventory.ItemStack
 import org.bukkit.persistence.PersistentDataType
 import java.lang.NumberFormatException
@@ -82,13 +81,13 @@ object PlayerItem {
 
     fun getString(item: ItemStack, key: String):String? {
         if(item.itemMeta == null) return null
-        return item.itemMeta.persistentDataContainer.get(NamespacedKey(DiveAPIN.plugin,key), PersistentDataType.STRING)
+        return item.itemMeta.persistentDataContainer.get(NamespacedKey(DiveLib.plugin,key), PersistentDataType.STRING)
     }
 
     fun getInt(item: ItemStack, key: String):Int {
         if(item.itemMeta == null) return -1
         return try {
-            item.itemMeta.persistentDataContainer.getOrDefault(NamespacedKey(DiveAPIN.plugin,key), PersistentDataType.STRING,"-1").toInt()
+            item.itemMeta.persistentDataContainer.getOrDefault(NamespacedKey(DiveLib.plugin,key), PersistentDataType.STRING,"-1").toInt()
         } catch (e: NullPointerException) {
             -1
         } catch (e: NumberFormatException) {
