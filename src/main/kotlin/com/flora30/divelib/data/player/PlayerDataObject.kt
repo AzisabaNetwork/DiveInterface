@@ -1,8 +1,6 @@
-package com.flora30.diveapin.data.player
+package com.flora30.divelib.data.player
 
 import java.util.*
-import kotlin.collections.HashMap
-import kotlin.collections.HashSet
 
 object PlayerDataObject {
     // UUID | プレイヤーデータ

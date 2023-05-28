@@ -1,4 +1,4 @@
-package com.flora30.diveapin.util
+package com.flora30.divelib.util
 
 import io.lumine.xikage.mythicmobs.MythicMobs
 import io.lumine.xikage.mythicmobs.api.exceptions.InvalidMobTypeException

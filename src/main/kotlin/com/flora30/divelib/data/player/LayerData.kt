@@ -1,4 +1,4 @@
-package com.flora30.diveapin.data.player
+package com.flora30.divelib.data.player
 
 class LayerData (
     var storySpeed: Int = 40,

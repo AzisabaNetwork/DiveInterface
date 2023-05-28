@@ -1,6 +1,6 @@
-package com.flora30.diveapin
+package com.flora30.divelib
 
-import com.flora30.diveapin.event.GetItemEvent
+import com.flora30.divelib.event.GetItemEvent
 import io.lumine.xikage.mythicmobs.MythicMobs
 import io.lumine.xikage.mythicmobs.items.ItemManager
 import org.bukkit.Bukkit

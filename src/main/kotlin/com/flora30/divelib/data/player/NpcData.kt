@@ -1,4 +1,4 @@
-package com.flora30.diveapin.data.player
+package com.flora30.divelib.data.player
 
 class NpcData (
     var talkDelay: Int = 20,

@@ -1,4 +1,4 @@
-package com.flora30.diveapin
+package com.flora30.divelib
 
 import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin

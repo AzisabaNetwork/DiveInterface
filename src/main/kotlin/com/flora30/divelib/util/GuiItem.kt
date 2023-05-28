@@ -1,4 +1,4 @@
-package com.flora30.diveapin.util
+package com.flora30.divelib.util
 
 import net.kyori.adventure.text.Component
 import org.bukkit.ChatColor

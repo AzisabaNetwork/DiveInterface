@@ -1,4 +1,4 @@
-package com.flora30.diveapin.data
+package com.flora30.divelib.data
 
 enum class TradePhase {
     Invite,

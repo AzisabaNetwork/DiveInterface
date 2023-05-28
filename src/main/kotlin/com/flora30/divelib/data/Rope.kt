@@ -1,6 +1,6 @@
-package com.flora30.diveapin.data
+package com.flora30.divelib.data
 
-import com.flora30.diveapin.BlockLoc
+import com.flora30.divelib.BlockLoc
 import org.bukkit.entity.Player
 import java.util.*
 

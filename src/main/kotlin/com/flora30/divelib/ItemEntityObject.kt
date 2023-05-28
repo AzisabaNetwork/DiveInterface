@@ -1,14 +1,13 @@
-package com.flora30.diveapin
+package com.flora30.divelib
 
-import com.flora30.diveapin.data.Rarity
-import com.flora30.diveapin.event.PutItemEntityEvent
+import com.flora30.divelib.data.Rarity
+import com.flora30.divelib.event.PutItemEntityEvent
 import org.bukkit.Bukkit
 import org.bukkit.Location
 import org.bukkit.entity.*
 import org.bukkit.inventory.ItemStack
 import org.bukkit.scoreboard.Team
 import java.util.*
-import kotlin.collections.HashSet
 
 object ItemEntityObject {
     // playerItemに必要なアイテムスポーン関連の機能のみ

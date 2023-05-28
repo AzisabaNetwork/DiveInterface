@@ -1,7 +1,6 @@
-package com.flora30.diveapin.event
+package com.flora30.divelib.event
 
 import io.lumine.xikage.mythicmobs.io.MythicConfig
-import org.bukkit.configuration.ConfigurationSection
 import org.bukkit.event.Event
 import org.bukkit.event.HandlerList
 

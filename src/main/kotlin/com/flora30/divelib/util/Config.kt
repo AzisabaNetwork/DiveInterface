@@ -1,4 +1,4 @@
-package com.flora30.diveapin.util
+package com.flora30.divelib.util
 
 import org.bukkit.Bukkit
 import org.bukkit.configuration.ConfigurationSection

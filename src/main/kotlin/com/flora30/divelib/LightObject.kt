@@ -1,7 +1,4 @@
-package com.flora30.diveapin
-
-import org.bukkit.entity.Player
-import javax.xml.stream.Location
+package com.flora30.divelib
 
 object LightObject {
     // 光の場所

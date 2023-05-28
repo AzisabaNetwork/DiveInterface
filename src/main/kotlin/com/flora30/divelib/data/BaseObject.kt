@@ -1,4 +1,4 @@
-package com.flora30.diveapin.data
+package com.flora30.divelib.data
 
 object BaseObject {
     // 拠点データ：変動（ワールド全体）

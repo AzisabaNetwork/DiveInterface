@@ -1,13 +1,12 @@
-package com.flora30.diveapin.util
+package com.flora30.divelib.util
 
-import com.flora30.diveapin.DiveLib
-import com.flora30.diveapin.ItemEntityObject
-import com.flora30.diveapin.ItemMain
+import com.flora30.divelib.DiveLib
+import com.flora30.divelib.ItemEntityObject
+import com.flora30.divelib.ItemMain
 import org.bukkit.NamespacedKey
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 import org.bukkit.persistence.PersistentDataType
-import java.lang.NumberFormatException
 
 object PlayerItem {
 

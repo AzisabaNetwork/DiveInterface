@@ -1,4 +1,4 @@
-package com.flora30.diveapin.data
+package com.flora30.divelib.data
 
 object RopeObject {
     val ropeSet = hashSetOf<Rope>()

@@ -1,4 +1,4 @@
-package com.flora30.diveapin.event
+package com.flora30.divelib.event
 
 enum class HelpType {
     HelpGUI,

@@ -1,7 +1,6 @@
-package com.flora30.diveapin
+package com.flora30.divelib
 
 import java.util.*
-import kotlin.collections.HashSet
 
 class MobEntityData (
     var remain: Int

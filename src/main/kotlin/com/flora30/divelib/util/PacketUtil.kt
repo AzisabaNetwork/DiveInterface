@@ -1,10 +1,10 @@
-package com.flora30.diveapin.util
+package com.flora30.divelib.util
 
 import com.comphenix.protocol.PacketType
 import com.comphenix.protocol.ProtocolLibrary
 import com.comphenix.protocol.wrappers.BlockPosition
 import com.comphenix.protocol.wrappers.WrappedBlockData
-import com.flora30.diveapin.DiveLib
+import com.flora30.divelib.DiveLib
 import org.bukkit.Location
 import org.bukkit.Material
 import org.bukkit.entity.Player
