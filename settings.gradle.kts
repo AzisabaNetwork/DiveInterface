@@ -1,3 +1,3 @@
 
-rootProject.name = "DiveAPIN"
+rootProject.name = "DiveLib"
 
