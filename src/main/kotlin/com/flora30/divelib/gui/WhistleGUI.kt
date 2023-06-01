@@ -84,7 +84,7 @@ object WhistleGUI {
         return item
     }
 
-    private fun getWhistleRankDisplay(whistle: Whistle?): String {
+    fun getWhistleRankDisplay(whistle: Whistle?): String {
         val type: String = when (whistle!!.type) {
             WhistleType.Red -> "赤笛"
             WhistleType.Blue -> "青笛"

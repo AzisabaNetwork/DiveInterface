@@ -20,7 +20,7 @@ import org.bukkit.inventory.ItemStack
 import java.util.*
 import kotlin.math.roundToInt
 
-class LootGUI {
+object LootGUI {
     fun open(player: Player, loot: Loot, level: Int) {
         if (playerDataMap[player.uniqueId] == null) return
         Bukkit.getPluginManager().callEvent(HelpEvent(player, HelpType.LootChestGUI))
