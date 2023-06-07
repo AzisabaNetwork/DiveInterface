@@ -23,6 +23,7 @@ jobs:
           mkdir -p $HOME/.gradle
           echo "repoUsername=${{ secrets.REPO_USERNAME }}" >> $HOME/.gradle/gradle.properties
           echo "repoPassword=${{ secrets.REPO_PASSWORD }}" >> $HOME/.gradle/gradle.properties
-          chmod 775 $HOME/*
       - name: Deploy
-        run: ./gradlew clean test publish
+        run: |
+          chmod 775 $HOME/*
+          ./gradlew clean test publish
