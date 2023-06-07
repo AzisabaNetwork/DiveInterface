@@ -3,6 +3,7 @@ plugins {
     id("com.github.johnrengelman.shadow") version "8.1.1"
     id("io.github.gradle-nexus.publish-plugin") version "1.3.0"
     `maven-publish`
+    java
 }
 
 group = "com.flora30"
