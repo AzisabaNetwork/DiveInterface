@@ -1,10 +1,12 @@
 plugins {
     kotlin("jvm") version "1.8.0"
     id("com.github.johnrengelman.shadow") version "8.1.1"
+    id("io.github.gradle-nexus.publish-plugin") version "1.3.0"
+    `maven-publish`
 }
 
 group = "com.flora30"
-version = "1.0-SNAPSHOT"
+version = "0.1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -26,4 +28,15 @@ tasks.test {
 
 kotlin {
     jvmToolchain(17)
+}
+
+nexusPublishing {
+    this.repositories {
+        create("repo") {
+            username.set(project.properties["repoUsername"].toString())
+            password.set(project.properties["repoPassword"].toString())
+            nexusUrl.set(uri("https://repo.azisaba.net/repository/maven-releases/"))
+            snapshotRepositoryUrl.set(uri("https://repo.azisaba.net/repository/maven-snapshots/"))
+        }
+    }
 }
