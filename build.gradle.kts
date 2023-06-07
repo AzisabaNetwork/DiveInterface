@@ -1,7 +1,6 @@
 plugins {
     kotlin("jvm") version "1.8.0"
     id("com.github.johnrengelman.shadow") version "8.1.1"
-    id("io.github.gradle-nexus.publish-plugin") version "1.3.0"
     `maven-publish`
     java
 }
@@ -17,7 +16,7 @@ repositories {
 }
 
 dependencies {
-    testImplementation(kotlin("test"))
+    implementation(kotlin("stdlib"))
     compileOnly("io.lumine:Mythic-Dist:5.0.0-SNAPSHOT")
     compileOnly("io.papermc.paper:paper-api:1.17.1-R0.1-SNAPSHOT")
     compileOnly("com.comphenix.protocol:ProtocolLib:4.7.0")
@@ -31,13 +30,44 @@ kotlin {
     jvmToolchain(17)
 }
 
-nexusPublishing {
-    this.repositories {
-        create("repo") {
-            username.set(project.properties["repoUsername"].toString())
-            password.set(project.properties["repoPassword"].toString())
-            nexusUrl.set(uri("https://repo.azisaba.net/repository/maven-releases/"))
-            snapshotRepositoryUrl.set(uri("https://repo.azisaba.net/repository/maven-snapshots/"))
+tasks {
+    javadoc {
+        options.encoding = "UTF-8"
+    }
+
+    compileJava {
+        options.encoding = "UTF-8"
+    }
+
+    compileKotlin {
+        kotlinOptions {
+            freeCompilerArgs = listOf("-opt-in=kotlin.RequiresOptIn")
+        }
+    }
+
+    shadowJar {
+        exclude("org/slf4j/**")
+        relocate("kotlin", "com.flora30.divelib.lib.kotlin")
+    }
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "repo"
+            credentials(PasswordCredentials::class)
+            url = uri(
+                if (project.version.toString().endsWith("SNAPSHOT"))
+                    project.findProperty("deploySnapshotURL") ?: System.getProperty("deploySnapshotURL", "https://repo.azisaba.net/repository/maven-snapshots/")
+                else
+                    project.findProperty("deployReleasesURL") ?: System.getProperty("deployReleasesURL", "https://repo.azisaba.net/repository/maven-releases/")
+            )
+        }
+    }
+
+    publications {
+        create<MavenPublication>("mavenJava") {
+            from(components["java"])
         }
     }
 }
