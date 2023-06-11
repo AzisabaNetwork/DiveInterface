@@ -3,6 +3,7 @@ package com.flora30.divelib.data
 import com.flora30.divelib.data.item.ToolType
 import org.bukkit.Location
 import java.util.*
+import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
 class Layer (
@@ -12,7 +13,8 @@ class Layer (
     val fall: Int,
     val isTown: Boolean,
     val exp: Int,
-    val story: Story
+    val story: Story,
+    val gimmickList: MutableList<String>
 ){
 
     fun isInRange(location: Location):Boolean {
