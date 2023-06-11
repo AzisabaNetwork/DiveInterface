@@ -1,6 +1,7 @@
 package com.flora30.divelib.data.player
 
 import com.comphenix.protocol.events.PacketContainer
+import com.flora30.divelib.data.gimmick.GimmickLog
 import org.bukkit.Location
 import org.bukkit.boss.BossBar
 
@@ -16,6 +17,7 @@ class PlayerData(
 
     ) {
     // セーブしないもの
+    val gimmickLogs = hashSetOf<GimmickLog>()
     val chatStackList: List<PacketContainer> = ArrayList()
     var afkLocation: Location? = null
     var afkTime = 0
