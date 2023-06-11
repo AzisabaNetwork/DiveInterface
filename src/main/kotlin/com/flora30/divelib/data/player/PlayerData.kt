@@ -17,7 +17,6 @@ class PlayerData(
 
     ) {
     // セーブしないもの
-    val gimmickLogs = hashSetOf<GimmickLog>()
     val chatStackList: List<PacketContainer> = ArrayList()
     var afkLocation: Location? = null
     var afkTime = 0

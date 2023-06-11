@@ -1,5 +1,7 @@
 package com.flora30.divelib.data.player
 
+import com.flora30.divelib.data.gimmick.GimmickLog
+
 class LayerData (
     var storySpeed: Int = 40,
     var curse: Double = 0.0,
@@ -13,5 +15,6 @@ class LayerData (
     var layer: String? = null,
     var openLootLocID: Int = 0
 ){
-
+    // セーブ無し
+    val gimmickLogs = hashSetOf<GimmickLog>()
 }
