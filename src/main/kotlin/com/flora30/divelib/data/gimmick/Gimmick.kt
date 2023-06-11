@@ -7,6 +7,7 @@ class Gimmick(
     val conditions: ArrayList<GCondition>,
     val actions: ArrayList<GAction>,
     val spawnRate: Int,
-    val group: String
+    val group: String,
+    val random: Double // 0 ~ 1
 ) {
 }
