@@ -17,7 +17,7 @@ class LayerData (
 
     // セーブ無し
     var layer: String? = null,
-    var openLootLocID: Int = 0
+    var openLootLoc: Location? = null
 ){
     fun isLootLocation(blockLoc: BlockLoc): Boolean{
         for (lootLoc in lootMap.keys){
