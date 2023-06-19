@@ -1,10 +1,7 @@
 package com.flora30.divelib.data.player
 
 import com.flora30.divelib.BlockLoc
-import com.flora30.divelib.data.LayerObject
 import com.flora30.divelib.data.gimmick.GimmickLog
-import com.flora30.divelib.data.loot.Loot
-import com.flora30.divelib.data.loot.LootObject
 import org.bukkit.Location
 
 class LayerData (

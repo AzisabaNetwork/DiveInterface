@@ -5,10 +5,10 @@ import org.bukkit.Material
 import java.util.*
 
 object LootObject {
-    // 階層ID | ルートチェストデータ
-    val lootMap = hashMapOf<String,Loot>()
+    // 報酬ID | 報酬データ
+    val lootItemMap = hashMapOf<String,ArrayList<ItemAmount>>()
 
-    // ChestTypeごとの表示ブロック
+    // ChestTypeごとのワールド表示ブロック
     val displayList = hashMapOf<ChestType, Material>()
 
     // レベルごとのデータ
@@ -18,8 +18,10 @@ object LootObject {
     var particleCount = 10
     var particleRange = 1.0
     var particleDistance = 20
-    var failedLoot: Loot.ItemAmount? = null
+    var failedLoot: ItemAmount? = null
     var fillAir = false
+
+    data class ItemAmount(val itemId: Int, val amount: Int)
 
     /**
      * @return レベル（1～3）

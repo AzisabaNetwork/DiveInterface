@@ -1,11 +1,12 @@
 package com.flora30.divelib.gui
 
 import com.flora30.divelib.ItemMain.getItem
+import com.flora30.divelib.data.Layer
 import com.flora30.divelib.data.PointObject.getLuckyRate
 import com.flora30.divelib.data.gimmick.action.ChestType
 import com.flora30.divelib.data.item.ItemDataObject.dropRateMap
 import com.flora30.divelib.data.item.ItemDataObject.itemDataMap
-import com.flora30.divelib.data.loot.Loot
+import com.flora30.divelib.data.loot.LootObject
 import com.flora30.divelib.data.loot.LootObject.failedLoot
 import com.flora30.divelib.data.loot.LootObject.lootLevelList
 import com.flora30.divelib.data.player.PlayerDataObject.playerDataMap
@@ -22,15 +23,15 @@ import kotlin.collections.ArrayList
 import kotlin.math.roundToInt
 
 object LootGUI {
-    fun open(player: Player, loot: Loot, type: ChestType, level: Int) {
+    fun open(player: Player, layer: Layer, type: ChestType, level: Int) {
         if (playerDataMap[player.uniqueId] == null) return
         Bukkit.getPluginManager().callEvent(HelpEvent(player, HelpType.LootChestGUI))
-        val gui = create(player, loot, type, level)
+        val gui = create(player, layer, type, level)
         player.openInventory(gui!!)
     }
 
 
-    private fun create(player: Player, loot: Loot, type: ChestType, level: Int): Inventory? {
+    private fun create(player: Player, layer: Layer, type: ChestType, level: Int): Inventory? {
         val data = playerDataMap[player.uniqueId]!!.levelData
         //プレイヤーデータの取得
         val luckyRate = getLuckyRate(data.pointLuc)
@@ -53,7 +54,7 @@ object LootGUI {
         var slotPlaced = 0
 
         //報酬の配置
-        val itemList: ArrayList<Loot.ItemAmount> = loot.itemList[type] ?: return null
+        val itemList: ArrayList<LootObject.ItemAmount> = LootObject.lootItemMap[layer.lootIDList[type]] ?: return null
         val slotList = (0 until itemList.size).toMutableList()
         slotList.shuffle()
         //報酬リストを回す

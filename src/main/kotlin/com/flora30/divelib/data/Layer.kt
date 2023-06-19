@@ -1,5 +1,6 @@
 package com.flora30.divelib.data
 
+import com.flora30.divelib.data.gimmick.action.ChestType
 import com.flora30.divelib.data.item.ToolType
 import org.bukkit.Location
 import java.util.*
@@ -16,6 +17,8 @@ class Layer (
     val story: Story,
     val gimmickList: MutableList<String>
 ){
+    // ルートチェスト報酬ID（種類別）
+    val lootIDList = mutableMapOf<ChestType,String>()
 
     fun isInRange(location: Location):Boolean {
         if (location.world == null || location.world.name != layerArea.world) return false
