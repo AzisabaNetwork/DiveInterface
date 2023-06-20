@@ -10,7 +10,6 @@ class Gimmick(
     val group: String?,
     val random: Double, // 0 ~ 1
     val logTime: Int,
-    val removeRange: Int, // ログを消去する距離
 ) {
 
     // グループ対応
