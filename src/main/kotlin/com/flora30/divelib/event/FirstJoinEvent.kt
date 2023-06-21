@@ -8,8 +8,9 @@ class FirstJoinEvent(
     val player: Player
 ): Event() {
 
-    private val handlerList = HandlerList()
-    override fun getHandlers(): HandlerList {
-        return handlerList
+    companion object{
+        private val handlerList = HandlerList()
+        @JvmStatic private fun getHandlerList(): HandlerList = handlerList
     }
+    override fun getHandlers(): HandlerList = handlerList
 }
