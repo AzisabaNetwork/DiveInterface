@@ -1,6 +1,7 @@
 package com.flora30.divelib.data.gimmick.action
 
 import com.flora30.divelib.data.GData
+import com.flora30.divelib.data.Layer
 import com.flora30.divelib.data.LayerObject
 import com.flora30.divelib.util.Mathing.getRandomInt
 import io.lumine.xikage.mythicmobs.MythicMobs
@@ -20,7 +21,7 @@ class GASpawnLayerMob(
     }
 
     private fun getRandomMob(layerName: String): MythicMob?{
-        val mobDataList: List<LayerObject.MobData> = LayerObject.mobMap[layerName] ?: return null
+        val mobDataList: List<Layer.MobData> = LayerObject.layerMap[layerName]?.mobMap?.get(spawnType) ?: return null
 
         var calcedRate = 0.0
         val randomized = getRandomInt(100)
