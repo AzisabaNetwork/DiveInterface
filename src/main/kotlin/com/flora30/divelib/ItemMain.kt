@@ -70,11 +70,11 @@ object ItemMain {
     }
 
     // ランダム値を指定してアイテム取得
-    fun getItemWithValue(id: Int, s1: String): ItemStack?{
+    fun getItemWithValue(id: Int, s1: String, isAsync: Boolean): ItemStack?{
         if (id == -1) return null
         val item: ItemStack = getNeutralItem(id) ?: return null
 
-        val event = GetItemEvent(id,item,s1,false)
+        val event = GetItemEvent(id,item,s1,isAsync)
         Bukkit.getPluginManager().callEvent(event)
         if (event.isCancelled){
             Bukkit.getLogger().info("[DiveAPIN-Item]ID-"+id+"の情報生成がキャンセルされました（アイテム不足？）")
