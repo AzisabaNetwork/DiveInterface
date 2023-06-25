@@ -14,8 +14,11 @@ repositories {
     maven("https://repo.papermc.io/repository/maven-public/")
 }
 
+val shadowImplementation: Configuration by configurations.creating
+configurations["implementation"].extendsFrom(shadowImplementation)
+
 dependencies {
-    implementation(kotlin("stdlib"))
+    shadowImplementation(kotlin("stdlib"))
     compileOnly("io.lumine:Mythic-Dist:5.0.0-SNAPSHOT")
     compileOnly("io.papermc.paper:paper-api:1.17.1-R0.1-SNAPSHOT")
     compileOnly("com.comphenix.protocol:ProtocolLib:4.7.0")
@@ -45,6 +48,7 @@ tasks {
     }
 
     shadowJar {
+        configurations = listOf(shadowImplementation)
         exclude("org/slf4j/**")
         relocate("kotlin", "com.flora30.divelib.lib.kotlin")
     }

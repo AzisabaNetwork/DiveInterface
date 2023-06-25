@@ -1,10 +1,12 @@
 package com.flora30.divelib.gui
 
 import com.flora30.divelib.ItemMain.getItem
+import com.flora30.divelib.data.Layer
 import com.flora30.divelib.data.PointObject.getLuckyRate
+import com.flora30.divelib.data.gimmick.action.ChestType
 import com.flora30.divelib.data.item.ItemDataObject.dropRateMap
 import com.flora30.divelib.data.item.ItemDataObject.itemDataMap
-import com.flora30.divelib.data.loot.Loot
+import com.flora30.divelib.data.loot.LootObject
 import com.flora30.divelib.data.loot.LootObject.failedLoot
 import com.flora30.divelib.data.loot.LootObject.lootLevelList
 import com.flora30.divelib.data.player.PlayerDataObject.playerDataMap
@@ -17,19 +19,19 @@ import org.bukkit.Sound
 import org.bukkit.entity.Player
 import org.bukkit.inventory.Inventory
 import org.bukkit.inventory.ItemStack
-import java.util.*
+import kotlin.collections.ArrayList
 import kotlin.math.roundToInt
 
 object LootGUI {
-    fun open(player: Player, loot: Loot, level: Int) {
+    fun open(player: Player, layer: Layer, type: ChestType, level: Int) {
         if (playerDataMap[player.uniqueId] == null) return
         Bukkit.getPluginManager().callEvent(HelpEvent(player, HelpType.LootChestGUI))
-        val gui = create(player, loot, level)
-        player.openInventory(gui)
+        val gui = create(player, layer, type, level)
+        player.openInventory(gui!!)
     }
 
 
-    private fun create(player: Player, loot: Loot, level: Int): Inventory {
+    private fun create(player: Player, layer: Layer, type: ChestType, level: Int): Inventory? {
         val data = playerDataMap[player.uniqueId]!!.levelData
         //プレイヤーデータの取得
         val luckyRate = getLuckyRate(data.pointLuc)
@@ -52,11 +54,13 @@ object LootGUI {
         var slotPlaced = 0
 
         //報酬の配置
-        val itemList: List<Loot.ItemAmount?> = loot.itemList[level]
-        Collections.shuffle(itemList)
+        val itemList: ArrayList<LootObject.ItemAmount> = LootObject.lootItemMap[layer.lootIDList[type]] ?: return null
+        val slotList = (0 until itemList.size).toMutableList()
+        slotList.shuffle()
         //報酬リストを回す
-        for (ia in itemList) {
-            val iData = itemDataMap[ia!!.itemId] ?: continue
+        for (slot in slotList) {
+            val ia = itemList[slot]
+            val iData = itemDataMap[ia.itemId] ?: continue
             val rate = dropRateMap[iData.rarity]!!
 
             //入手するかの判定
@@ -72,14 +76,14 @@ object LootGUI {
             }
 
             //gui上にランダム配置
-            var slot = (Math.random() * (gui.size - 1)).roundToInt()
-            while (gui.getItem(slot) != null) {
-                slot++
-                if (slot >= maxSlot) {
-                    slot = 0
+            var guiSlot = (Math.random() * (gui.size - 1)).roundToInt()
+            while (gui.getItem(guiSlot) != null) {
+                guiSlot++
+                if (guiSlot >= maxSlot) {
+                    guiSlot = 0
                 }
             }
-            gui.setItem(slot, item)
+            gui.setItem(guiSlot, item)
             slotPlaced++
 
             //インベントリが埋まったら抜ける

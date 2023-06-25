@@ -1,6 +1,7 @@
 package com.flora30.divelib.data.player
 
 import com.comphenix.protocol.events.PacketContainer
+import com.flora30.divelib.data.gimmick.GimmickLog
 import org.bukkit.Location
 import org.bukkit.boss.BossBar
 

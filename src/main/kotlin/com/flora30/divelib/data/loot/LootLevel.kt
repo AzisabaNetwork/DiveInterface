@@ -8,7 +8,7 @@ class LootLevel (
     val titlePlus: String = "Lv.1",
     val chestSlot: Int = 9,
     val percent: Double = 0.0,
-    var particle: Particle = Particle.END_ROD,
-    var material: Material = Material.CHEST
+    var particle: Particle = Particle.END_ROD
+    //var material: Material = Material.CHEST
 ){
 }

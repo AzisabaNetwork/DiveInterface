@@ -26,6 +26,9 @@ class DiveLib: JavaPlugin() {
     // 毎tick更新される現在時間（ms単位、ラグ検出用）
     var lagTime: Long = 0
 
+    // tickを回した回数（ラグ軽減用）
+    var tickCount: Int = 0
+
 
     override fun onEnable() {
         super.onEnable()
@@ -40,6 +43,7 @@ class DiveLib: JavaPlugin() {
             tick() // 一番上に置く
 
             lagTime = System.currentTimeMillis()
+            tickCount++
         },1L)
     }
 

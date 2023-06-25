@@ -10,8 +10,9 @@ class LayerChangeEvent(
     val isAsync: Boolean
 ): Event(isAsync) {
 
-    private val handlerList = HandlerList()
-    override fun getHandlers(): HandlerList {
-        return handlerList
+    companion object{
+        private val handlerList = HandlerList()
+        @JvmStatic private fun getHandlerList(): HandlerList = handlerList
     }
+    override fun getHandlers(): HandlerList = handlerList
 }

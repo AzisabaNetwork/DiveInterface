@@ -1,0 +1,6 @@
+name: DiveLib
+version: ${project.version}
+main: com.flora30.divelib.DiveLib
+api-version: 1.13
+author: Flora
+depend: [MythicMobs,ProtocolLib]

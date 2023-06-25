@@ -15,12 +15,7 @@ object LayerObject {
     val gatherMap = hashMapOf<String, GatherData>()
 
     // Layerの設定ファイルの場所
-    val layerFile: Array<File> = File(DiveLib.plugin.dataFolder.absolutePath + "/area").listFiles()
-
-    // 階層ID | Mobデータ
-    val mobMap = hashMapOf<String,List<MobData>>()
-    data class MobData(val mobName: String, val rate: Double)
-
+    val layerFile: Array<out File>? = File(DiveLib.plugin.dataFolder.absolutePath + "/area").listFiles()
 
     fun getLayerName(location: Location):String? {
         return layerMap.keys.firstOrNull { layerMap[it]!!.isInRange(location) }

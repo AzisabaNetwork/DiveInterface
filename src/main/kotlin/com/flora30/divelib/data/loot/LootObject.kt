@@ -1,13 +1,15 @@
 package com.flora30.divelib.data.loot
 
-import com.flora30.divelib.BlockLoc
-import com.flora30.divelib.data.LayerObject
+import com.flora30.divelib.data.gimmick.action.ChestType
+import org.bukkit.Material
+import java.util.*
 
 object LootObject {
-    // 階層ID | ルートチェストデータ
-    val lootMap = hashMapOf<String,Loot>()
-    // 階層ID |
-    val amountMap = hashMapOf<String,Int>()
+    // 報酬ID | 報酬データ
+    val lootItemMap = hashMapOf<String,ArrayList<ItemAmount>>()
+
+    // ChestTypeごとのワールド表示ブロック
+    val displayList = hashMapOf<ChestType, Material>()
 
     // レベルごとのデータ
     val lootLevelList = arrayListOf<LootLevel>()
@@ -16,18 +18,27 @@ object LootObject {
     var particleCount = 10
     var particleRange = 1.0
     var particleDistance = 20
-    var failedLoot: Loot.ItemAmount? = null
+    var failedLoot: ItemAmount? = null
     var fillAir = false
 
-    fun isLootLocation(blockLoc: BlockLoc): Boolean{
-        val layer: String? = LayerObject.getLayerName(blockLoc.getLocation())
-        val loot: Loot = lootMap[layer] ?: return false
+    data class ItemAmount(val itemId: Int, val amount: Int)
 
-        for (lootLoc in loot.locationList) {
-            if (blockLoc.z == lootLoc.blockZ && blockLoc.y == lootLoc.blockY && blockLoc.x == lootLoc.blockZ) {
-                return true
+    /**
+     * @return レベル（1～3）
+     */
+    fun getRandomLootLevel(): Int {
+        var reverseList: List<LootLevel?> = ArrayList(lootLevelList)
+        reverseList = reverseList.reversed()
+        var currentRate = 0.0
+        val size = reverseList.size
+        for (i in 0 until size) {
+            currentRate += reverseList[i]!!.percent
+            if (Math.random() <= currentRate) {
+                //Bukkit.getLogger().info("lootLevel決定 - "+(reverseList.size()-i));
+                return size - i
             }
         }
-        return false
+        //Bukkit.getLogger().info("lootLevel決定 - 0");
+        return 0
     }
 }

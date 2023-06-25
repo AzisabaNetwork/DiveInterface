@@ -1,5 +1,6 @@
 package com.flora30.divelib.event
 
+import jdk.incubator.foreign.ResourceScope.Handle
 import org.bukkit.entity.Player
 import org.bukkit.event.Event
 import org.bukkit.event.HandlerList
@@ -12,8 +13,9 @@ class AddExpEvent (
     val exp: Int
 ): Event(){
 
-    private val handlerList = HandlerList()
-    override fun getHandlers(): HandlerList {
-        return handlerList
+    companion object{
+        private val handlerList = HandlerList()
+        @JvmStatic private fun getHandlerList(): HandlerList = handlerList
     }
+    override fun getHandlers(): HandlerList = handlerList
 }
