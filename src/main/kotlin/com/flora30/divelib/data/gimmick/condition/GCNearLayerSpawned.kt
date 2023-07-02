@@ -12,6 +12,9 @@ class GCNearLayerSpawned(
     override fun check(data: GData): Boolean {
         val layerName = LayerObject.getLayerName(data.location) ?: return false
 
+        if (GimmickObject.layerLogMap[layerName] == null) {
+            GimmickObject.layerLogMap[layerName] = HashSet()
+        }
         for (log in GimmickObject.layerLogMap[layerName] ?: return false){
             if (log.location.distance(data.location) < range){
                 if (GimmickObject.gimmickMap[log.gimmickID] == GimmickObject.gimmickMap[data.gimmickID]){

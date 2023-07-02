@@ -31,11 +31,11 @@ object LootObject {
         reverseList = reverseList.reversed()
         var currentRate = 0.0
         val size = reverseList.size
-        for (i in 0 until size) {
+        for (i in 0 until size-1) {
             currentRate += reverseList[i]!!.percent
             if (Math.random() <= currentRate) {
                 //Bukkit.getLogger().info("lootLevel決定 - "+(reverseList.size()-i));
-                return size - i
+                return size-1 - i
             }
         }
         //Bukkit.getLogger().info("lootLevel決定 - 0");

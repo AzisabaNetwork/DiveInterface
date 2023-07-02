@@ -32,6 +32,8 @@ object PlayerItem {
         var count = 0
         val inventory = player.inventory
         for (item in inventory) {
+            if (item == null) continue
+
             if (getInt(item,"id") == id){
                 count += item.amount
             }
