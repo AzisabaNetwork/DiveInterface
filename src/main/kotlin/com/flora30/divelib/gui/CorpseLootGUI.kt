@@ -19,7 +19,7 @@ import org.bukkit.inventory.Inventory
 import org.bukkit.inventory.ItemStack
 import kotlin.math.roundToInt
 
-class CorpseLootGUI {
+object CorpseLootGUI {
     fun open(player: Player, layer: Layer, type: ChestType) {
         if (PlayerDataObject.playerDataMap[player.uniqueId] == null) return
         Bukkit.getPluginManager().callEvent(HelpEvent(player, HelpType.LootChestGUI))
