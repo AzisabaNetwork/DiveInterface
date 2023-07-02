@@ -20,21 +20,15 @@ import org.bukkit.inventory.ItemStack
 import kotlin.math.roundToInt
 
 object CorpseLootGUI {
-    fun open(player: Player, layer: Layer, type: ChestType) {
+    fun open(player: Player, lootID: String) {
         if (PlayerDataObject.playerDataMap[player.uniqueId] == null) return
         Bukkit.getPluginManager().callEvent(HelpEvent(player, HelpType.LootChestGUI))
-        val gui = create(player, layer, type)
-        if (gui == null) {
-            Bukkit.getLogger().info("type = "+type)
-            Bukkit.getLogger().info("lootIDList = "+layer.lootIDList[type])
-            Bukkit.getLogger().info("lootItemList = "+ LootObject.lootItemMap[layer.lootIDList[type]])
-            return
-        }
+        val gui = create(player, lootID) ?: return
         player.openInventory(gui)
     }
 
 
-    private fun create(player: Player, layer: Layer, type: ChestType): Inventory? {
+    private fun create(player: Player, lootID: String): Inventory? {
         val data = PlayerDataObject.playerDataMap[player.uniqueId]!!.levelData
         // ラッキーチェスト判定は行わない
         //名前の＋を取り出してGUIを新規作成
@@ -43,7 +37,7 @@ object CorpseLootGUI {
         var slotPlaced = 0
 
         //報酬の配置
-        val itemList: ArrayList<LootObject.ItemAmount> = LootObject.lootItemMap[layer.lootIDList[type]] ?: return null
+        val itemList: ArrayList<LootObject.ItemAmount> = LootObject.lootItemMap[lootID] ?: return null
         val slotList = arrayOf(3,4,5,
                                 12,13,14,
                                 21,22,23).toMutableList()
