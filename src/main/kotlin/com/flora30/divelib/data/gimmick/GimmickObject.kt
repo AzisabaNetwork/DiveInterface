@@ -1,5 +1,7 @@
 package com.flora30.divelib.data.gimmick
 
+import com.flora30.divelib.data.teleport.AreaRegion
+
 object GimmickObject {
     // ギミックID | ギミック
     val gimmickMap = hashMapOf<String,Gimmick>()
@@ -7,6 +9,8 @@ object GimmickObject {
     // layerID | ギミックログ
     val layerLogMap = hashMapOf<String,HashSet<GimmickLog>>()
 
+    // layerID | 特殊エリア（InSpecial用）
+    val specialRegionMap = hashMapOf<String,HashSet<AreaRegion>>()
 
     /**
      * データベース保存時の文字数省略用

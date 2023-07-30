@@ -27,7 +27,13 @@ object LootGUI {
         if (playerDataMap[player.uniqueId] == null) return
         Bukkit.getPluginManager().callEvent(HelpEvent(player, HelpType.LootChestGUI))
         val gui = create(player, layer, type, level)
-        player.openInventory(gui!!)
+        if (gui == null) {
+            Bukkit.getLogger().info("type = "+type)
+            Bukkit.getLogger().info("lootIDList = "+layer.lootIDList[type])
+            Bukkit.getLogger().info("lootItemList = "+LootObject.lootItemMap[layer.lootIDList[type]])
+            return
+        }
+        player.openInventory(gui)
     }
 
 
