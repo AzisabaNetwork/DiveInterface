@@ -11,7 +11,6 @@ import org.bukkit.persistence.PersistentDataType
 object ItemMain {
     val itemManager: ItemManager = ItemManager(Bukkit.getPluginManager().getPlugin("MythicMobs") as MythicMobs)
 
-
     // アイテムそのもの
     val itemMap: Map<Int, ItemStack> = HashMap()
     val mythicItemMap: Map<Int, String> = HashMap()

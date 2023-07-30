@@ -1,5 +1,7 @@
 package com.flora30.divelib
 
+import com.comphenix.protocol.ProtocolLibrary
+import com.comphenix.protocol.ProtocolManager
 import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
 import org.bukkit.scheduler.BukkitScheduler
@@ -7,10 +9,12 @@ import org.bukkit.scheduler.BukkitScheduler
 class DiveLib: JavaPlugin() {
     companion object {
         lateinit var plugin: DiveLib
+        lateinit var protocolManager: ProtocolManager
     }
 
     init {
         plugin = this
+        protocolManager = ProtocolLibrary.getProtocolManager()
     }
 
     // 準備が出来たプラグインのフラグ

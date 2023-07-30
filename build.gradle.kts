@@ -10,8 +10,10 @@ version = "0.1.0-SNAPSHOT"
 repositories {
     mavenCentral()
 
+    maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
     maven("https://mvn.lumine.io/repository/maven-public/")
     maven("https://repo.papermc.io/repository/maven-public/")
+    maven("https://repo.codemc.org/repository/maven-snapshots/")
 }
 
 val shadowImplementation: Configuration by configurations.creating
@@ -21,7 +23,9 @@ dependencies {
     shadowImplementation(kotlin("stdlib"))
     compileOnly("io.lumine:Mythic-Dist:5.0.0-SNAPSHOT")
     compileOnly("io.papermc.paper:paper-api:1.17.1-R0.1-SNAPSHOT")
-    compileOnly("com.comphenix.protocol:ProtocolLib:4.7.0")
+    compileOnly("com.comphenix.protocol:ProtocolLib:5.0.0")
+    compileOnly("com.github.retrooper.packetevents:spigot:2.0.0-SNAPSHOT")
+    compileOnly("org.spigotmc:spigot:1.17.1-R0.1-SNAPSHOT")
 }
 
 tasks.test {
