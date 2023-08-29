@@ -14,7 +14,7 @@ object GuiItem {
     fun getItem(material: Material): ItemStack {
         val item = ItemStack(material)
         val meta = item.itemMeta
-        meta.displayName(Component.text("${ChatColor.WHITE}"))
+        meta.displayName(Component.text("${ChatColor.RESET}"))
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS)
         item.itemMeta = meta
         return item
@@ -26,36 +26,11 @@ object GuiItem {
     fun getItem(type: GuiItemType): ItemStack {
         val item = ItemStack(Material.PAPER)
         val meta = item.itemMeta
-        meta.displayName(Component.text("${ChatColor.WHITE}"))
-        meta.setCustomModelData(getCustomModelData(type))
+        meta.displayName(Component.text("${ChatColor.RESET}"))
+        meta.setCustomModelData(type.customModelData)
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS)
         item.itemMeta = meta
         return item
-    }
-
-    private fun getCustomModelData(type: GuiItemType): Int {
-        return when (type) {
-            GuiItemType.QuestPrepared -> 1
-            GuiItemType.QuestAccepted -> 2
-            GuiItemType.QuestCompleted -> 3
-            GuiItemType.PointLuc -> 4
-            GuiItemType.PointInt -> 5
-            GuiItemType.PointVit -> 6
-            GuiItemType.PointAtk -> 7
-            GuiItemType.Point -> 8
-            GuiItemType.Return -> 9
-            GuiItemType.Help -> 10
-            GuiItemType.PointZero -> 11
-            GuiItemType.Plus -> 12
-            GuiItemType.WoolWhite -> 13
-            GuiItemType.WoolGray -> 14
-            GuiItemType.WoolBlack -> 15
-            GuiItemType.WhistleRed -> 16
-            GuiItemType.WhistleBlue -> 17
-            GuiItemType.WhistleMoon -> 18
-            GuiItemType.WhistleBlack -> 19
-            GuiItemType.WhistleWhite -> 20
-        }
     }
 
     /**
@@ -65,7 +40,7 @@ object GuiItem {
         val item = ItemStack(Material.PAPER)
         val meta = item.itemMeta
         meta.displayName(Component.text("${ChatColor.WHITE}戻る"))
-        meta.setCustomModelData(getCustomModelData(GuiItemType.Return))
+        meta.setCustomModelData(GuiItemType.Return.customModelData)
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS)
         item.itemMeta = meta
         return item

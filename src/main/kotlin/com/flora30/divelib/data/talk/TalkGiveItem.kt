@@ -11,6 +11,6 @@ class TalkGiveItem(
     override fun talk(player: Player, npc: NPC) {
         val item = ItemMain.getItem(itemId)!!
         item.amount = amount
-        PlayerItem.giveItem(player,item)
+        PlayerItem.giveItem(player, item)
     }
 }

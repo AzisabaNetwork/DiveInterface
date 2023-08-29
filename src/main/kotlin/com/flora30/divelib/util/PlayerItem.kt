@@ -17,12 +17,9 @@ object PlayerItem {
         val inventory = player.inventory
 
         // インベントリが埋まっているときは外に出す
-        if (inventory.firstEmpty() == -1) {
-            ItemEntityObject.spawnItem(item,player.location.add(0.0,1.0,0.0),player)
-            return
+        inventory.addItem(item).forEach { (_, item) ->
+            ItemEntityObject.spawnItem(item, player.location.add(0.0,1.0,0.0), player)
         }
-
-        inventory.addItem(item)
     }
 
     /**

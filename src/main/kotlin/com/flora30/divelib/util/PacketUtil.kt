@@ -5,6 +5,7 @@ import com.comphenix.protocol.ProtocolLibrary
 import com.comphenix.protocol.wrappers.BlockPosition
 import com.comphenix.protocol.wrappers.WrappedBlockData
 import com.flora30.divelib.DiveLib
+import com.flora30.divelib.DiveLib.Companion.protocolManager
 import org.bukkit.Location
 import org.bukkit.Material
 import org.bukkit.entity.Player
@@ -21,7 +22,6 @@ object PacketUtil {
 
     fun sendBlockChangePacket(player: Player?, material: Material?, x: Int, y: Int, z: Int) {
         // パケットコンテナを作成
-        val protocolManager = ProtocolLibrary.getProtocolManager()
         val packetContainer = protocolManager.createPacket(PacketType.Play.Server.BLOCK_CHANGE)
         // フィールドへ書き込み
         packetContainer.blockPositionModifier.write(0, BlockPosition(x, y, z))
